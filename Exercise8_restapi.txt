@@ -1,0 +1,13 @@
+RESTAPI
+
+exercise 8:
+First lookup gene
+$ curl 'https://rest.ensembl.org/lookup/symbol/zebrafish/MYCN' -H 'content-type:application/json'
+{"object_type":"Gene","strand":1,"seq_region_name":"20","species":"zebrafish","start":33294428,"version":9,"source":"ensembl_havana","biotype":"protein_coding","assembly_name":"GRCz11","end":33299384,"id":"ENSDARG00000006837","logic_name":"ensembl_havana_gene","description":"MYCN proto-oncogene, bHLH transcription factor [Source:ZFIN;Acc:ZDB-GENE-020711-1]","db_type":"core","display_name":"mycn"}
+
+use information for query
+$ curl 'https://rest.ensembl.org/sequence/region/zebrafish/1:33294428:33294528:' -H 'Content-type:text/x-fasta'
+>chromosome:GRCz11:1:33294428:33294528:1
+TTATCATACACCCTTTATAGTCATTTTTTAGCCTTTACACTCTCAGAAATACAGGTACCC
+GAGCTGTCACTGGAGGTACACATTTGTACCTAAAAGGTTCA
+
