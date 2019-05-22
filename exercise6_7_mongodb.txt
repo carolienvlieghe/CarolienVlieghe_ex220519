@@ -1,0 +1,8 @@
+$ mongoimport ~/Downloads/bioinf_mongo_examen.json
+
+Exercise 6:
+
+
+Exercise 7:
+db.bioinf_mongo_examen.aggregate([{$group:{_id:{company:"$company"},percentage:{$sum:"$percentage_of_side_effects"}}},{$group:{_id:"$_id.company", avgpercentage:{$avg:"$percentage"}}}])
+
