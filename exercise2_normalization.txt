@@ -1,0 +1,20 @@
+UNF Project(Personnel number, Name, Date of birth, lab code, lab name, [research code, research description, research supervisor])
+Personnel number in combination with the research code makes the row unique: this is the whole key.
+
+NF --> 1NF: eliminate repeating groups, make sure every row is unique.
+1NF: 
+	Personnel(Personnel number, Name, Date of birth, lab code, lab name) PK = personnel_number
+	PersonnelProject(research code, research description, research supervisor, personnel number) PK = research code
+	
+1NF --> 2NF: look for partial dependencies and eliminate them (is a non-key attribute only dependent on a part of the whole key?).
+2NF: 
+	Personnel(Personnel_number, Name, Date of birth, lab code, lab name) PK = Personnel number
+	Research(Research code, research description, research supervisor) PK = Research code
+	PersonnelProject(project_id, Personnel number, research code) PK = project_id
+	
+2NF --> 3NF: look for transitive dependencies and elimenate them (is a non-key attribute dependent on another non-key attribute?).
+3NF:
+	Personnel(Personnel number, Name, Date of birth, lab code) PK = personnel number
+	Lab(lab code, lab name) PK = lab code
+	Research(Research code, research description, research supervisor) PK = research code
+	personnelProject(project_id, Personnel number, research code) PK = project_id
